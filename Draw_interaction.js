@@ -16,64 +16,65 @@ function drawInteraction(faces, hands) {
       drawPoints(hand)
       drawConnections(hand)
     }
-    // console.log(hand);
-    let indexFingerTipX = hand.index_finger_tip.x;
-    let indexFingerTipY = hand.index_finger_tip.y;
-    /*
-    Start drawing on the hands here
-    */
+    let thumbTip = hand.thumb_tip;
 
-    // pinchCircle(hand)
-    fill(225, 225, 0);
-    ellipse(indexFingerTipX, indexFingerTipY, 30, 30);
+    let indTip = hand.index_finger_tip;
 
-    /*
-    Stop drawing on the hands here
-    */
+    let indPip = hand.index_finger_pip;
+
+    let thumbDip = hand.thumb_ip;
+    
+    let thumbMcp = hand.thumb_mcp;
+    let indMcp = hand.index_finger_mcp;
+    let middleMcp = hand.middle_finger_mcp;
+    let pinkMcp = hand.pinky_finger_mcp;
+    
+    let wrist = hand.wrist;
+
+    //==============================================
+    
+      //face variables
+
+      // let eyeRight = face.rightEye;
+      
+      
+      if (hand.handedness === "Left"){
+        fill(255);
+        stroke(100,255,40);
+        //  line(face.leftEye.x, face.leftEye.y, palmX, palmY);
+       //  line(face.rightEye.x, face.rightEye.y, palmX, palmY);
+        
+        ellipse(indTip.x, indTip.y, 40);
+       }
+    
+
+      if (hand.handedness === "Right"){
+        fill(255);
+        stroke(220,20,100);
+        // line(face.leftEye.x, face.leftEye.y, palmX, palmY);
+        //  line(face.rightEye.x, face.rightEye.y, palmX, palmY);
+     
+      //  ellipse(palmX, palmY, 200);
+     }
+      strokeWeight(5);
+ 
+     noStroke();
   }
+ 
+   }
+
+
+
+
+  
 
 
 
   //------------------------------------------------------------
   //facePart
   // for loop to capture if there is more than one face on the screen. This applies the same process to all faces. 
-  for (let i = 0; i < faces.length; i++) {
-    let face = faces[i]; // face holds all the keypoints of the face
-    if (showKeypoints) {
-      drawPoints(face)
-    }
-    // console.log(face);
-    /*
-    Once this program has a face, it knows some things about it.
-    This includes how to draw a box around the face, and an oval. 
-    It also knows where the key points of the following parts are:
-     face.leftEye
-     face.leftEyebrow
-     face.lips
-     face.rightEye
-     face.rightEyebrow
-    */
-
-    /*
-    Start drawing on the face here
-    */
-
-    // fill(225, 225, 0);
-    // ellipse(leftEyeCenterX, leftEyeCenterY, leftEyeWidth, leftEyeHeight);
-
-    drawPoints(face.leftEye);
-    drawPoints(face.leftEyebrow);
-    drawPoints(face.lips);
-    drawPoints(face.rightEye);
-    drawPoints(face.rightEyebrow);
-    /*
-    Stop drawing on the face here
-    */
-
-  }
   //------------------------------------------------------
-  // You can make addtional elements here, but keep the face drawing inside the for loop. 
-}
+  // You can make addtional elements here, but keep the face drawing inside the for loop. }
 
 
 function drawConnections(hand) {
